@@ -2,7 +2,7 @@ class Game
   TOTAL_ERRORS_ALLOWED = 7
 
   def initialize(word)
-    @letters = word.chars
+    @letters = word.upcase.chars
     @user_guesses = []
   end
 
@@ -50,9 +50,9 @@ class Game
   end
 
   def play!(letter)
-    num_letter = normalize_letter(letter)
-    if !over? && !@user_guesses.include?(num_letter)
-      @user_guesses << num_letter
+    norm_letter = normalize_letter(letter)
+    if !over? && !@user_guesses.include?(norm_letter)
+      @user_guesses << norm_letter
     end
   end
 
